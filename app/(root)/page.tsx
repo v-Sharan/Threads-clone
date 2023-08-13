@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 const Home = async () => {
   const user = await currentUser();
-  if (!user) return redirect("/sign-in");
+  if (!user) redirect("/sign-in");
 
   const { posts, isNext } = await fetchThreads(1, 30);
   return (
